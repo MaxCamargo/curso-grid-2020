@@ -1,0 +1,126 @@
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: sans-serif;
+  }
+  *,
+  *::after,
+  *::before {
+    box-sizing: inherit;
+  }
+  a[href="#top"] {
+    margin: 1rem;
+    display: block;
+    font-size: 2rem;
+    text-align: center;
+    text-decoration: none;
+  }
+  p {
+    margin: 0;
+  }
+
+  h2 {
+    text-align: center;
+  }
+ body{
+     min-height: 100vh;
+     display: grid;
+     grid-template-columns: repeat(6,1fr);
+     grid-template-rows: repeat(5,auto);
+     /*se deja en auto para que dependa del contenido*/
+     gap: 0.3rem;
+     margin: 0;
+ }
+  
+ body>*{
+     background-color: rgb(0, 195, 255);
+     border: 1.5px rgb(0, 102, 211) solid;   
+ }
+
+ 
+.header{
+    grid-area: 1/1/2/7;
+    background-color: salmon;
+}
+
+.nav{
+    grid-area: 2/1/3/7;
+    background-color: rgb(73, 58, 128);
+}
+
+.footer{
+    grid-area: 5/1/6/7;
+    background-color: rgb(154, 75, 67);
+}
+
+.uc-left{
+    grid-column: span 2;
+    grid-row: span 1;
+    background-color: rgb(28, 124, 71);
+}
+.uc-center{
+    grid-column: span 2;
+    grid-row: span 1;
+}
+.uc-right{
+    grid-column: span 2;
+    grid-row: span 1;
+    background-color: rgb(15, 205, 100);
+}
+.middle{
+    grid-column: span 3;
+    grid-row: span 1;
+    background-color: rgb(28, 124, 71);
+}
+
+.lower{
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+/************************************/
+/**********versión Desktop***********/
+
+@media screen and (min-width: 1024px){
+  body{
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(5,auto);
+    background-color: sandybrown;
+  }
+  .header{
+    grid-area: 1/1/2/7;
+    background-color: salmon;
+}
+
+.nav{
+    grid-area: 2/1/5/2;
+    background-color: rgb(128, 58, 122);
+}
+
+.footer{
+    grid-area: 5/1/6/7;
+    background-color: rgb(154, 75, 67);
+}
+
+.uc-left{
+    grid-column: span 1;
+    grid-row: span 1;
+}
+.uc-center{
+    grid-column: span 2;
+    grid-row: span 1;
+}
+.uc-right{
+    grid-column: span 1;
+    grid-row: span 1;
+}
+.middle{
+    grid-column: span 4;
+    grid-row: span 1;
+    background-color: rgb(242, 127, 74);
+}
+.lower{
+    grid-column: span 4;
+    grid-row: span 1;
+}
+}

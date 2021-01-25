@@ -1,0 +1,419 @@
+html {
+      box-sizing: border-box;
+      font-size: 16px;
+      font-family: sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    *,
+    *::after,
+    *::before {
+      box-sizing: inherit;
+    }
+
+    a[href="#top"] {
+      margin: 1rem;
+      display: block;
+      font-size: 2rem;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    h2 {
+      margin-top: 50vh;
+      text-align: center;
+    }
+
+    img {
+      margin: auto;
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .menu {
+      margin-bottom: 100vh;
+      font-size: 125%;
+    }
+
+    .menu li {
+      margin-bottom: 1rem;
+    }
+
+    .container {
+      margin: 0 auto;
+      width: 80%;
+      height: 80vh;
+      background-color: rgb(215, 215, 215);
+      border: medium solid rgb(145, 145, 145);
+    }
+
+    .item {
+      padding: 1rem;
+      font-size: 1.25rem;
+      background-color: #666;
+      border: medium solid #999;
+    }
+
+    .sub-item{
+      background-color: aquamarine;
+      padding: 1rem;
+      border: salmon solid 0.1rem;
+    }
+
+/**********************************/
+/**********Grid Explicit***********/
+
+    .grid-explicit{
+        display: grid;
+        /*grid de 4cx5r*/
+        grid-template-columns: 20% repeat(2, 30%)20%;
+        grid-template-rows: repeat(5,auto);
+        /*Gap*/
+        /*gap: 1vh 1vw;*/
+    }
+
+    /*Posicionando una item dentro del grid*/
+
+    .grid-explicit .item:nth-child(10){
+        background-color: aqua;
+        color: brown;
+        /*Atajo de posicionamineto*/
+        grid-area: 2/1/3/5;
+        /*Atajo de posicionamineto*/
+        grid-area: 1/1/2/6;
+    }
+
+    /*Acomodando con span*/
+    .grid-explicit .item:nth-child(12){
+        background-color: rgb(34, 0, 255);
+        color: rgb(51, 79, 39);
+        /*Atajo de posicionamineto*/
+        grid-area: 1/2/span 2/span 2
+    }
+/**********************************/
+/**********Grid Explicit***********/
+
+
+
+/*****************************************/
+/**********Grid templates areas***********/
+    .grid-areas{
+        display: grid;
+        grid-template-columns: 1fr 200px 1fr;
+        grid-template-rows: 100px 1fr 60px;
+        grid-template-areas:
+        "header header ."
+        "content content sidebar "
+        "footer footer footer";
+    }
+
+    .header{
+        grid-area: header;
+        background-color: burlywood;
+    }
+
+    .content{
+        grid-area: content;
+        background-color: chocolate;
+    }
+
+    .sidebar{
+        grid-area: sidebar;
+        background-color: darkblue;
+    }
+
+    .footer{
+        grid-area: footer;
+        background-color: darkgreen;
+    }
+
+   /*****************************************/
+    /**********Grid templates areas***********/
+
+  
+/***************************************************************/
+/**********Grid Implícita. Grids de bloque y de línea***********/
+
+/*Definimos la grid manualmente y los elementos que sobran se desbordaran*/
+
+.grid-implicit{
+  /*Grid 4cX3r*/
+  width: 40%;
+  /*se comporta con naturaleza display block*/
+  display: grid;
+  /*Display inlinegrid: se corre todo a la izquierda porque, se aplica en modo inline*/
+  /* display: inline-grid */;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 200px);
+}
+
+/***************************************************************/
+/**********Grid Implícita. Grids de bloque y de línea***********/
+
+
+/***************************************************************/
+/********************FLUJO DE LA GRID **************************/
+
+.grid-flow{
+  display: grid;
+  /* Grid de 5cX4r */
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3,150px);
+  /*Proiedad que me determina el flujo de la cuadricula*/
+  grid-auto-flow: row;
+  /*puedo hacer que todas las filas implicitas tengan un valor implicito definido*/
+  grid-auto-rows: 100px;
+
+  grid-auto-flow: column;
+  /*puedo hacer que todas las columnas implicitas tengan un valor implicito definido*/
+  grid-auto-columns: 5px;
+}
+
+.grid-flow-dense{
+  display: grid;
+  /*Grid de 5cX4r*/
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 200px);
+  /*Aprovechas los espacios dinamicamente los espacios*/
+  grid-auto-flow: dense;
+}
+
+.grid-flow-dense .item:nth-child(9){
+  background-color: darkmagenta;
+  grid-row: span 3;
+  grid-column: span 3;
+} 
+
+/***************************************************************/
+/********************FLUJO DE LA GRID **************************/
+
+
+/***************************************************************/
+/******************Grid Layers: Celdas en capas*****************/
+
+.grid-layers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.grid-layers .item:nth-child(1){
+  background-color: darkorange;
+  grid-area: 1/1/3/3;
+}
+.grid-layers .item:nth-child(2){
+  background-color: rgb(12, 3, 44);
+  grid-area: 1/3/3/5;
+}
+
+.grid-layers .item:nth-child(3){
+  background-color: rgb(198, 8, 150);
+  grid-area: 3/1/5/3;
+}
+
+.grid-layers .item:nth-child(4){
+  background-color: rgb(17, 198, 8);
+  grid-area: 3/3/5/5;
+}
+
+.grid-layers .item:nth-child(5){
+  background-color: rgb(135, 8, 198);
+  grid-area: 2/2/4/4;
+}
+/***************************************************************/
+/******************Grid Layers: Celdas en capas*****************/
+
+
+/***********************************************/
+/******************Orden Grid Items*************/
+.grid-order{
+  display: grid;
+  /* Grid de 3cX2r */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-auto-flow: column;
+}
+
+.grid-order .item:nth-child(1){
+  order: 1;
+  background-color: darkred;
+}
+.grid-order .item:nth-child(2){
+  order: 2;
+  background-color: rgb(0, 139, 120);
+}
+
+.grid-order .item:nth-child(5){
+  order: -2;
+  background-color: rgb(127, 139, 0);
+}
+.grid-order .item:nth-child(4){
+  order: -1;
+  background-color: rgb(139, 0, 139);
+}
+/**************************************************/
+/******************Orden de Grid Items*************/
+
+
+
+/*******************************************************/
+/******************Alineación de Grid Items*************/
+
+.grid-align{
+  display: grid;
+  /* Grid de 3cX2r */
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(2, 200px);
+
+  /* alinear los elementos en y*/
+  justify-items: start;
+  justify-content: center;
+  /* alinear los elementos*/
+  
+  /* alinear los elementos en x*/
+  align-content: center;
+  align-items: center;
+  /* alinear los elementos en x*/
+}
+
+
+/* alinear un elemento especifico*/
+.grid-align .item:nth-child(4){
+  background-color: darkred;
+  justify-self: start;
+  align-self: start;
+}
+
+
+/*******************************************************/
+/*****************Alineación de Grid Tracks*************/
+
+.grid-align-tracks{
+  display: grid;
+  /* Grid de 3cX2r */
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(2, 200px);
+  /* alinear los los tracks de la grid en el eje horizontal o x*/
+  justify-content: center;
+  justify-content: space-evenly;
+  /* alinear los los tracks de la grid en el eje vertical o */
+  align-content: center;
+  align-content: space-evenly;
+}
+/*******************************************************/
+/*****************Alineación de Grid Tracks*************/
+
+
+
+
+/**********************************************************************/
+/*****************Tamaños Máximos y Mínimos de Grid Tracks*************/
+
+.grid-min-max{
+  display: grid;
+  /* Grid de 3cX?r */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(100px,200px));
+  grid-template-columns: repeat(4, minmax(min-content,200px));
+  grid-template-columns: repeat(4, minmax(100px,min-content));
+  grid-template-columns: repeat(4, minmax(max-content,100px));
+  grid-template-columns: repeat(4, minmax(min-content,max-content));
+}
+
+/**********************************************************************/
+/*****************Tamaños Máximos y Mínimos de Grid Tracks*************/
+
+
+
+
+/************************************************************/
+/*****************Grids con Patrones Repetitivos*************/
+/*solo se palica en grid template columns y rows*/
+.grid-repeat{
+  display: grid;
+  /* Grid de 3cX?r */
+  /* grid-template-columns: repeat(4, 1fr); */
+  grid-template-columns: repeat(4,10%20%30%40%);
+  grid-template-columns: repeat(3,10%20%30%40%);
+  grid-template-columns: repeat(2,10%20%30%40%);
+  grid-template-columns: repeat(1,10%20%30%40%);
+  grid-template-rows: repeat(2,10vh 20vh);
+  grid-auto-rows: 300px;
+}
+
+/************************************************************/
+/*****************Grids con Patrones Repetitivos*************/
+
+
+
+/***************************************************************************/
+/*****************Grids Dinámicas. Responsive sin Media Queries*************/
+
+.grid-dynamics{
+  display: grid;
+  /* Grid de 4cX?r */
+  grid-template-columns:repeat(4, 100px) ;
+  /*Auto fill rellena la grid con tracks generados dinamicamente*/
+  grid-template-columns: repeat(auto-fill, 100px);
+  /*Auto fit rellena la grid con tracks generados dinamicamente*/
+  grid-template-columns: repeat(auto-fit, 100px);
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.grid-responsive{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 0.2vw;
+}
+
+/***************************************************************************/
+/*****************Grids Dinámicas. Responsive sin Media Queries*************/
+
+
+
+
+
+
+/*******************************************************/
+/*****************Grids Anidadas & Subgrids*************/
+.grid-nested{
+  display: grid;
+  /* Grid de 3cX?r */
+  grid-template-columns: repeat(3,1fr);
+}
+
+.grid-nested2{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.2vw;
+}
+
+.grid{
+  display: grid;
+  /* Grid de 3cX4r */
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(4,1fr);
+}
+
+.subgrid{
+  /* para que la caracteristica de subgrid funcione es necesario hacer lo siguiente:
+  1. Definir explicitamente el tamaño de ocupara el elemento que aplicara subgrid dentro del
+  contenedor padre grid, es decir definir sus propios grif column y grid row.
+  2. Aplicar disply grid al elemento que aplicara subgrid
+  */
+  grid-column:span 2;
+  grid-row:1/2;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
+
+/*******************************************************/
+/*****************Grids Anidadas & Subgrids*************/
